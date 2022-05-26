@@ -1,2 +1,0 @@
-# Wordle
-mid-term project

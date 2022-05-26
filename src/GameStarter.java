@@ -14,23 +14,23 @@ public class GameStarter {
 
                 wordle.add(gameName);
         }
-//        choose a random five-letter-word from the wordlist.
+
+        //      choose a random five-letter-word from the wordlist.
         public void intiWord(){
                 int range=10;
                 File wordSource=new File("src/word.txt");
                 int randomNumber=(int)(Math.random()*range);
                 try{
-                FileReader wordReader=new FileReader(wordSource);
-                BufferedReader wordBuffer=new BufferedReader(wordReader);
-                for(int i=1;i<=range;i++)
-                {
-                        this.randomWord=wordBuffer.readLine();
-                        if(i==randomNumber)
-                                break;
-                }
-                        System.out.println(this.randomWord);
-                wordBuffer.close();
-                wordReader.close();
+                        FileReader wordReader=new FileReader(wordSource);
+                        BufferedReader wordBuffer=new BufferedReader(wordReader);
+                        for(int i=1;i<=range;i++)
+                        {
+                                this.randomWord=wordBuffer.readLine();
+                                if(i==randomNumber)
+                                        break;
+                        }
+                        wordBuffer.close();
+                        wordReader.close();
                 }
                 catch (IOException e) {
                         System.out.println("the wordlist is not found.");

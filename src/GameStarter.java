@@ -23,7 +23,7 @@ public class GameStarter {
                 for(int i=0;i<30;i++)
                 {
                         letter[i]=new JLabel("",JLabel.CENTER);
-                        letter[i].setFont(new Font("Dialog",1,24));
+                        letter[i].setFont(new Font("宋体",1,24));
                         letter[i].setBorder( BorderFactory.createLineBorder(Color.black));
                         guessWord.add(letter[i]);
                 }

@@ -34,7 +34,7 @@ public class GameStarter {
         //      choose a random five-letter-word from the wordlist.
         public void intiWord(){
                 int range=10;
-                File wordSource=new File("src/word.txt");
+                File wordSource=new File("word.txt");
                 int randomNumber=(int)(Math.random()*range);
                 try{
                         FileReader wordReader=new FileReader(wordSource);

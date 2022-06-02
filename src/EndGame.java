@@ -47,7 +47,9 @@ class NoActionListener implements ActionListener{
 class YesActionListener implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         EndGame.result.dispose();
-        GameStarter.wordle.dispose();
         GameStarter gameStarter=new GameStarter();
     }
 }
+
+
+

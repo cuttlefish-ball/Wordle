@@ -3,9 +3,13 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Listener extends KeyAdapter {
-    private int guessTime =0;
-    private int guessWordNumber=0;
+    private int guessTime;
+    private int guessWordNumber;
     private char[] inputWord=new char[5];
+    public Listener(){
+        guessTime=0;
+        guessWordNumber=0;
+    }
 //    listen the user's input on the keyboard.
     public void keyPressed(KeyEvent e){
         String inputLetter=String.valueOf((char)e.getKeyCode());
@@ -67,4 +71,6 @@ public class Listener extends KeyAdapter {
                 GameStarter.letter[i+guessWordNumber*5].setForeground(new Color(150,150,150));
         }
     }
+
+
 }

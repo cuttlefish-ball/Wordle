@@ -27,9 +27,15 @@ public class Listener extends KeyAdapter {
         {
             if(CheckInput.checkValid(String.valueOf(inputWord)))
             {
-                checkWord(inputWord);
-                guessTime = 0;
-                guessWordNumber++;
+                if(String.valueOf(inputWord).equals(GameStarter.randomWord))
+                    EndGame.win();
+                else {
+                    checkWord(inputWord);
+                    guessTime = 0;
+                    guessWordNumber++;
+                    if(guessWordNumber==6)
+                        EndGame.lose();
+                }
             }
             else
                 error();
@@ -44,8 +50,10 @@ public class Listener extends KeyAdapter {
         error.add(errorMessage);
         error.setBounds(600,400,300,100);
         error.setVisible(true);
+        error.setResizable(false);
     }
 
+//    check the letter is whether in the answer word and in the right place or not.
     public void checkWord(char[] word){
         for(int i=0;i<5;i++)
         {

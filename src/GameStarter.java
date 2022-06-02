@@ -4,7 +4,7 @@ import java.io.*;
 
 public class GameStarter {
         private String randomWord;
-        public JLabel[] letter=new JLabel[30];
+
 //        build the game's GUI
         public void buildGUI(){
 //                set the frame
@@ -14,21 +14,20 @@ public class GameStarter {
                 wordle.setSize(500,500);
                 wordle.setLayout(null);
                 wordle.setLocationRelativeTo(null);
+                wordle.setResizable(false);
 //                set the game name and the letter box
                 JLabel gameName=new JLabel("WORDLE");
                 gameName.setBounds(200,25,200,50);
-                gameName.setFont(new Font("宋体",1,36));
+                gameName.setFont(new Font("宋体",Font.BOLD,36));
                 JPanel guessWord=new JPanel(new GridLayout(6,5,10,10));
                 guessWord.setBounds(100,100,300,300);
-                for(int i=0;i<30;i++)
-                {
-                        letter[i]=new JLabel("",JLabel.CENTER);
-                        letter[i].setFont(new Font("宋体",1,24));
-                        letter[i].setBorder( BorderFactory.createLineBorder(Color.black));
-                        guessWord.add(letter[i]);
-                }
                 wordle.add(guessWord);
                 wordle.add(gameName);
+                Letter l=new Letter();
+                for(int i=0;i<30;i++)
+                {
+                        guessWord.add(l.letter[i]);
+                }
         }
 
         //      choose a random five-letter-word from the wordlist.

@@ -4,6 +4,7 @@ import java.io.*;
 
 public class GameStarter {
         public static String randomWord;
+        public static JFrame wordle;
         public static JLabel[]letter=new JLabel[30];
 
         public GameStarter(){
@@ -13,7 +14,7 @@ public class GameStarter {
 //        build the game's GUI
         public void buildGUI(){
 //                build the frame
-                JFrame  wordle=new JFrame("Wordle");
+                wordle=new JFrame("Wordle");
                 wordle.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 wordle.setVisible(true);
                 wordle.setSize(500,500);

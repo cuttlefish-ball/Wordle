@@ -29,7 +29,7 @@ public class Listener extends KeyAdapter {
              if(CheckInput.checkValid(String.valueOf(inputWord)))
                 {
                     if(String.valueOf(inputWord).equals(GameStarter.randomWord))
-                        EndGame.win();
+                        EndGame.end(true);
                     else
                     {
                         checkWord(inputWord);
@@ -37,7 +37,7 @@ public class Listener extends KeyAdapter {
                         guessWordNumber++;
                     }
                     if(guessWordNumber==6)
-                        EndGame.lose();
+                        EndGame.end(false);
                 }
             else
                 error();

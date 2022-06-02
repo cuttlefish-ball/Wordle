@@ -8,7 +8,7 @@ public class CheckInput {
         try{
             FileReader wordReader=new FileReader(wordSource);
             BufferedReader wordBuffer=new BufferedReader(wordReader);
-            for(int i=1;i<=2000;i++)
+            for(int i=1;i<=5757;i++)
                 if(wordBuffer.readLine().equals(guess))
                 {
                     checkOutcome=true;

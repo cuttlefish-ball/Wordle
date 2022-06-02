@@ -25,22 +25,24 @@ public class Listener extends KeyAdapter {
 //        if the user input Enter, check the word.
         if(e.getKeyCode()==KeyEvent.VK_ENTER&&guessTime==5)
         {
-            if(CheckInput.checkValid(String.valueOf(inputWord)))
-            {
-                if(String.valueOf(inputWord).equals(GameStarter.randomWord))
-                    EndGame.win();
-                else {
-                    checkWord(inputWord);
-                    guessTime = 0;
-                    guessWordNumber++;
+
+             if(CheckInput.checkValid(String.valueOf(inputWord)))
+                {
+                    if(String.valueOf(inputWord).equals(GameStarter.randomWord))
+                        EndGame.win();
+                    else
+                    {
+                        checkWord(inputWord);
+                        guessTime = 0;
+                        guessWordNumber++;
+                    }
                     if(guessWordNumber==6)
                         EndGame.lose();
                 }
-            }
             else
                 error();
-        }
-    }
+            }
+            }
 
 //    when the user's word is not in the wordlist, error happens.
     public void error(){
@@ -61,6 +63,8 @@ public class Listener extends KeyAdapter {
                 GameStarter.letter[i+guessWordNumber*5].setForeground(new Color(0,153,0));
             else if(GameStarter.randomWord.contains(String.valueOf(word[i])))
                 GameStarter.letter[i+guessWordNumber*5].setForeground(new Color(255,200,0));
+            else
+                GameStarter.letter[i+guessWordNumber*5].setForeground(new Color(150,150,150));
         }
     }
 }

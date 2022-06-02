@@ -5,10 +5,15 @@ import java.io.*;
 public class GameStarter {
         public static String randomWord;
         public static JLabel[]letter=new JLabel[30];
+        public static JFrame  wordle=new JFrame("Wordle");
+        public GameStarter(){
+                buildGUI();
+                intiWord();
+        }
 //        build the game's GUI
         public void buildGUI(){
 //                build the frame
-                JFrame  wordle=new JFrame("Wordle");
+
                 wordle.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 wordle.setVisible(true);
                 wordle.setSize(500,500);
@@ -36,7 +41,7 @@ public class GameStarter {
 
         //      choose a random five-letter-word from the wordlist.
         public void intiWord(){
-                int range=1;
+                int range=1000;
                 File wordSource=new File("word.txt");
                 int randomNumber=(int)(Math.random()*range);
                 try{

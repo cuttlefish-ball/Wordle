@@ -6,6 +6,7 @@ public class Listener extends KeyAdapter {
     private int guessTime =0;
     private int guessWordNumber=0;
     private char[] inputWord=new char[5];
+//    listen the user's input on the keyboard.
     public void keyPressed(KeyEvent e){
         String inputLetter=String.valueOf((char)e.getKeyCode());
 //        if user input letter from 'a' to 'z', get the input and put it on the label.
@@ -13,7 +14,6 @@ public class Listener extends KeyAdapter {
         {
             GameStarter.letter[guessTime +5*guessWordNumber].setText(inputLetter);
             inputWord[guessTime]=(char)(e.getKeyCode()+32);
-            System.out.println(inputWord[guessTime]);
             guessTime++;
         }
 //        if the user input Backspace, delete the last input letter.
@@ -27,6 +27,7 @@ public class Listener extends KeyAdapter {
         {
             if(CheckInput.checkValid(String.valueOf(inputWord)))
             {
+                checkWord(inputWord);
                 guessTime = 0;
                 guessWordNumber++;
             }
@@ -43,5 +44,15 @@ public class Listener extends KeyAdapter {
         error.add(errorMessage);
         error.setBounds(600,400,300,100);
         error.setVisible(true);
+    }
+
+    public void checkWord(char[] word){
+        for(int i=0;i<5;i++)
+        {
+            if(GameStarter.randomWord.charAt(i)==word[i])
+                GameStarter.letter[i+guessWordNumber*5].setForeground(new Color(0,153,0));
+            else if(GameStarter.randomWord.contains(String.valueOf(word[i])))
+                GameStarter.letter[i+guessWordNumber*5].setForeground(new Color(255,200,0));
+        }
     }
 }

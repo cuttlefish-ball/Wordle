@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.io.*;
 
 public class GameStarter {
@@ -30,7 +28,7 @@ public class GameStarter {
                 for(int i=0;i<30;i++)
                 {
                         letter[i]=new JLabel("",JLabel.CENTER);
-                        letter[i].setFont(new Font("宋体",Font.PLAIN,24));
+                        letter[i].setFont(new Font("宋体",Font.BOLD,24));
                         letter[i].setBorder( BorderFactory.createLineBorder(Color.black));
                         guessWord.add(letter[i]);
                 }
@@ -38,7 +36,7 @@ public class GameStarter {
 
         //      choose a random five-letter-word from the wordlist.
         public void intiWord(){
-                int range=10;
+                int range=1;
                 File wordSource=new File("word.txt");
                 int randomNumber=(int)(Math.random()*range);
                 try{

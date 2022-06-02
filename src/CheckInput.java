@@ -23,8 +23,8 @@ public class CheckInput {
     return checkOutcome;
     }
 
-    public boolean checkRight(){
-    return true;
+    public boolean checkRight(String word){
+       return word.equals(GameStarter.randomWord);
     }
 
 }

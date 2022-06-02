@@ -2,18 +2,16 @@ import java.io.*;
 
 public class CheckInput {
 //    check the input whether is a five-letter-word
-    public boolean checkValid(String guess){
-        File wordSource=new File("src/word.txt");
-        boolean check=false;
-        if(guess.length()!=5)
-            return false;
+    public static boolean checkValid(String guess){
+        File wordSource=new File("word.txt");
+        boolean checkOutcome=false;
         try{
             FileReader wordReader=new FileReader(wordSource);
             BufferedReader wordBuffer=new BufferedReader(wordReader);
             for(int i=1;i<=2000;i++)
                 if(wordBuffer.readLine().equals(guess))
                 {
-                    check=true;
+                    checkOutcome=true;
                     break;
                 }
             wordBuffer.close();
@@ -22,7 +20,7 @@ public class CheckInput {
         catch (IOException e) {
             System.out.println("the wordlist is not found.");
         }
-    return check;
+    return checkOutcome;
     }
 
     public boolean checkRight(){

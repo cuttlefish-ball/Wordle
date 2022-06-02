@@ -1,13 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.*;
 
 public class GameStarter {
-        private String randomWord;
-
+        public static String randomWord;
+        public static JLabel[]letter=new JLabel[30];
 //        build the game's GUI
         public void buildGUI(){
-//                set the frame
+//                build the frame
                 JFrame  wordle=new JFrame("Wordle");
                 wordle.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 wordle.setVisible(true);
@@ -15,6 +17,7 @@ public class GameStarter {
                 wordle.setLayout(null);
                 wordle.setLocationRelativeTo(null);
                 wordle.setResizable(false);
+                wordle.addKeyListener(new Listener());
 //                set the game name and the letter box
                 JLabel gameName=new JLabel("WORDLE");
                 gameName.setBounds(200,25,200,50);
@@ -23,10 +26,13 @@ public class GameStarter {
                 guessWord.setBounds(100,100,300,300);
                 wordle.add(guessWord);
                 wordle.add(gameName);
-                Letter l=new Letter();
+//                build the letter sheet
                 for(int i=0;i<30;i++)
                 {
-                        guessWord.add(l.letter[i]);
+                        letter[i]=new JLabel("",JLabel.CENTER);
+                        letter[i].setFont(new Font("宋体",Font.PLAIN,24));
+                        letter[i].setBorder( BorderFactory.createLineBorder(Color.black));
+                        guessWord.add(letter[i]);
                 }
         }
 
@@ -40,7 +46,7 @@ public class GameStarter {
                         BufferedReader wordBuffer=new BufferedReader(wordReader);
                         for(int i=1;i<=range;i++)
                         {
-                                this.randomWord=wordBuffer.readLine();
+                                randomWord=wordBuffer.readLine();
                                 if(i==randomNumber)
                                         break;
                         }
@@ -50,8 +56,5 @@ public class GameStarter {
                 catch (IOException e) {
                         System.out.println("the wordlist is not found.");
                 }
-        }
-        public String getRandomWord(){
-                return this.randomWord;
         }
 }

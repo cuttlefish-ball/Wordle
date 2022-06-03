@@ -3,9 +3,9 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class EndGame {
-    public static JFrame result=new JFrame();
+    public static JFrame result;
     public static void end(boolean outcome){
-
+        result=new JFrame();
         JButton yes=new JButton("Yes");
         result.add(yes);
         yes.setBounds(10,90,75,20);
